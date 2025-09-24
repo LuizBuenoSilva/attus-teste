@@ -233,57 +233,5 @@ docker-compose up -d
 docker-compose down
 ```
 
-### Construir Imagem da Aplicação
 
-```bash
-# Construir JAR
-mvn clean package
 
-# Construir imagem Docker (se houver Dockerfile)
-docker build -t attus-teste .
-```
-
-## 🚀 Deploy
-
-### Variáveis de Ambiente para Produção
-
-```bash
-export SPRING_DATASOURCE_URL=jdbc:postgresql://prod-db:5432/attus_db
-export SPRING_DATASOURCE_USERNAME=prod_user
-export SPRING_DATASOURCE_PASSWORD=prod_password
-export SPRING_PROFILES_ACTIVE=prod
-```
-
-### Profile de Produção
-
-Crie um `application-prod.properties` para configurações específicas de produção.
-
-## 🤝 Contribuição
-
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
-## 👥 Equipe
-
-- **Equipe Attus** - Desenvolvimento e Manutenção
-- **Contato**: contato@attus.com.br
-- **Website**: https://www.attus.com.br
-
-## 📞 Suporte
-
-Para suporte técnico ou dúvidas sobre o sistema:
-
-- 📧 Email: suporte@attus.com.br
-- 📱 Telefone: (11) 9999-9999
-- 🌐 Website: https://www.attus.com.br/suporte
-
----
-
-**Desenvolvido com ❤️ pela equipe Attus**
