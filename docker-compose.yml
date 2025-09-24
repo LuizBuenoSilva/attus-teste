@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_attus
+    restart: always
+    environment:
+      POSTGRES_USER: attus_user
+      POSTGRES_PASSWORD: attus_password
+      POSTGRES_DB: attus_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  sonarqube:
+    image: sonarqube:community
+    container_name: sonarqube
+    restart: always
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    ports:
+      - "9000:9000"
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+
+volumes:
+  postgres_data:
+  sonarqube_data:
+  sonarqube_extensions:
