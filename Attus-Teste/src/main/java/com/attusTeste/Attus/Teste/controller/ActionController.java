@@ -8,22 +8,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/actions")
+@RequestMapping("/api/actions")
 public class ActionController {
 
-    private final ActionService service;
+    private final ActionService actionService;
 
-    public ActionController(ActionService service) {
-        this.service = service;
+    public ActionController(ActionService actionService) {
+        this.actionService = actionService;
     }
 
     @PostMapping
-    public ResponseEntity<Action> create(@RequestBody Action action) {
-        return ResponseEntity.ok(service.create(action));
+    public ResponseEntity<Action> createAction(@RequestBody Action action) {
+        Action created = actionService.create(action);
+        return ResponseEntity.ok(created);
     }
 
-    @GetMapping("/byProcess/{processId}")
-    public List<Action> getByProcess(@PathVariable Long processId) {
-        return service.findByProcessId(processId);
+    @GetMapping("/process/{processId}")
+    public ResponseEntity<List<Action>> getByProcess(@PathVariable Long processId) {
+        List<Action> actions = actionService.findByProcessId(processId);
+        return ResponseEntity.ok(actions);
     }
 }

@@ -23,7 +23,7 @@ class JudicialProcessServiceTest {
     private JudicialProcessRepository repository;
 
     @InjectMocks
-    private JudicialProcessService service;
+    private JudicialProcessServiceImpl service; // usa a implementação
 
     private JudicialProcess process;
 

@@ -8,27 +8,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/parties")
+@RequestMapping("/api/parties")
 public class PartyController {
 
-    private final PartyService service;
+    private final PartyService partyService;
 
-    public PartyController(PartyService service) {
-        this.service = service;
+    public PartyController(PartyService partyService) {
+        this.partyService = partyService;
     }
 
     @PostMapping
-    public ResponseEntity<Party> create(@RequestBody Party party) {
-        return ResponseEntity.ok(service.create(party));
+    public ResponseEntity<Party> createParty(@RequestBody Party party) {
+        Party created = partyService.create(party);
+        return ResponseEntity.ok(created);
     }
 
-    @GetMapping("/byProcess/{processId}")
-    public List<Party> getByProcess(@PathVariable Long processId) {
-        return service.findByProcess(processId);
+    @GetMapping("/process/{processId}")
+    public ResponseEntity<List<Party>> getByProcess(@PathVariable Long processId) {
+        List<Party> parties = partyService.findByProcess(processId);
+        return ResponseEntity.ok(parties);
     }
 
-    @GetMapping("/byCpfOrCnpj")
-    public List<Party> getByCpfOrCnpj(@RequestParam String cpfOrCnpj) {
-        return service.findByCpfOrCnpj(cpfOrCnpj);
+    @GetMapping("/search")
+    public ResponseEntity<List<Party>> getByCpfOrCnpj(@RequestParam String cpfOrCnpj) {
+        List<Party> parties = partyService.findByCpfOrCnpj(cpfOrCnpj);
+        return ResponseEntity.ok(parties);
     }
 }

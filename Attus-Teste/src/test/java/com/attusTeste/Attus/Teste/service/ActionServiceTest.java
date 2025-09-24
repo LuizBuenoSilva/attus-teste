@@ -4,7 +4,9 @@ import com.attusTeste.Attus.Teste.model.Action;
 import com.attusTeste.Attus.Teste.repository.ActionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import java.util.List;
 
@@ -13,13 +15,15 @@ import static org.mockito.Mockito.*;
 
 class ActionServiceTest {
 
+    @Mock
     private ActionRepository repository;
-    private ActionService service;
+
+    @InjectMocks
+    private ActionServiceImpl service; // usa a implementação
 
     @BeforeEach
     void setUp() {
-        repository = Mockito.mock(ActionRepository.class);
-        service = new ActionService(repository);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
