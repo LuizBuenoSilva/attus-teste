@@ -8,7 +8,6 @@ public class ActionDTO {
     private LocalDate actionDate;
     private String description;
 
-    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getActionType() { return actionType; }

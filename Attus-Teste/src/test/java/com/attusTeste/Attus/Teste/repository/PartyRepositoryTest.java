@@ -37,7 +37,6 @@ class PartyRepositoryTest {
         party1.setJudicialProcess(judicialProcess);
         party2.setJudicialProcess(judicialProcess);
 
-        // Salvar manualmente, pois não há cascade
         partyRepository.save(party1);
         partyRepository.save(party2);
     }

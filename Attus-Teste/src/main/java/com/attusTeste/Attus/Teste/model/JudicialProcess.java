@@ -30,7 +30,7 @@ public class JudicialProcess {
     @JsonManagedReference("process-actions")
     private List<Action> actions = new ArrayList<>();
 
-    private String status; // ATIVO, SUSPENSO, ARQUIVADO
+    private String status;
 
     public JudicialProcess() {}
 
@@ -41,7 +41,6 @@ public class JudicialProcess {
         this.status = status;
     }
 
-    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -63,7 +62,6 @@ public class JudicialProcess {
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
 
-    // Helpers
     public void addParty(Party party) {
         parties.add(party);
         party.setJudicialProcess(this);

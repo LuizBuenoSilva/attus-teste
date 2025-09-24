@@ -12,7 +12,6 @@ public class JudicialProcessDTO {
     private List<PartyDTO> parties;
     private List<ActionDTO> actions;
 
-    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

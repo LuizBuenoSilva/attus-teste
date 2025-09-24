@@ -25,7 +25,6 @@ class ActionRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        // Criar o processo judicial
         judicialProcess = new JudicialProcess(
                 "PROCESSO78910",
                 LocalDate.now(),
@@ -33,15 +32,12 @@ class ActionRepositoryTest {
                 "ATIVO"
         );
 
-        // Criar ações sem acento
         Action action1 = new Action("Peticao", LocalDate.now(), "Peticao inicial feita pelo autor");
         Action action2 = new Action("Audiencia", LocalDate.now(), "Audiencia marcada com o juiz");
 
-        // Usar método helper para garantir bidirecionalidade
         judicialProcess.addAction(action1);
         judicialProcess.addAction(action2);
 
-        // Salvar o processo; as ações serão salvas automaticamente pelo cascade
         judicialProcessRepository.save(judicialProcess);
     }
 

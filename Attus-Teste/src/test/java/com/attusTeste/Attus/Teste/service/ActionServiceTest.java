@@ -19,7 +19,7 @@ class ActionServiceTest {
     private ActionRepository repository;
 
     @InjectMocks
-    private ActionServiceImpl service; // usa a implementação
+    private ActionServiceImpl service;
 
     @BeforeEach
     void setUp() {

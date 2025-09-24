@@ -19,7 +19,7 @@ class PartyServiceTest {
     private PartyRepository repository;
 
     @InjectMocks
-    private PartyServiceImpl service; // agora usamos a implementação
+    private PartyServiceImpl service;
 
     @BeforeEach
     void setUp() {
